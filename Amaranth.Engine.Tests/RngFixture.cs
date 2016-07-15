@@ -44,10 +44,9 @@ namespace Amaranth.Engine.Tests
         #region Int
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestIntMaxThrowsIfNegative()
         {
-            Rng.Int(-2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Int(-2));
         }
 
         [Test]
@@ -60,10 +59,9 @@ namespace Amaranth.Engine.Tests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestIntMinMaxThrowsBadRange()
         {
-            Rng.Int(5, 3);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Int(5, 3));
         }
 
         [Test]
@@ -76,10 +74,9 @@ namespace Amaranth.Engine.Tests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestIntInclusiveMaxThrowsIfNegative()
         {
-            Rng.IntInclusive(-2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.IntInclusive(-2));
         }
 
         [Test]
@@ -92,10 +89,9 @@ namespace Amaranth.Engine.Tests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestIntInclusiveMinMaxThrowsBadRange()
         {
-            Rng.IntInclusive(5, 3);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.IntInclusive(5, 3));
         }
 
         [Test]
@@ -112,10 +108,9 @@ namespace Amaranth.Engine.Tests
         #region Float
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestFloatMaxThrowsIfNegative()
         {
-            Rng.Float(-2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Float(-2));
         }
 
         [Test]
@@ -128,10 +123,9 @@ namespace Amaranth.Engine.Tests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestFloatMinMaxThrowsBadRange()
         {
-            Rng.Float(0.2f, 0.1f);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Float(0.2f, 0.1f));
         }
 
         [Test]
@@ -154,17 +148,15 @@ namespace Amaranth.Engine.Tests
         #region OneIn
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestOneInThrowsIfNegative()
         {
-            Rng.OneIn(-2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.OneIn(-2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestOneInThrowsIfZero()
         {
-            Rng.OneIn(0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.OneIn(0));
         }
 
         [Test]
@@ -181,31 +173,27 @@ namespace Amaranth.Engine.Tests
         #region Roll
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestRollThrowsIfDiceIsZero()
         {
-            int dummy = Rng.Roll(0, 6);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Roll(0, 6));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestRollThrowsIfDiceIsNegative()
         {
-            int dummy = Rng.Roll(-3, 6);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Roll(-3, 6));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestRollThrowsIfSidesIsZero()
         {
-            int dummy = Rng.Roll(1, 0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Roll(1, 0));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestRollThrowsIfSidesIsNegative()
         {
-            int dummy = Rng.Roll(1, -3);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Roll(1, -3));
         }
 
         [Test]
@@ -247,10 +235,9 @@ namespace Amaranth.Engine.Tests
         #region TriangleInt
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestTriangleIntThrowsIfRangeIsNegative()
         {
-            int dummy = Rng.TriangleInt(5, -1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.TriangleInt(5, -1));
         }
 
         [Test]
@@ -292,17 +279,15 @@ namespace Amaranth.Engine.Tests
         #region Walk
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestWalkThrowsIfDecIsOne()
         {
-            int dummy = Rng.Walk(1, 1, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Walk(1, 1, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestWalkThrowsIfIncIsOne()
         {
-            int dummy = Rng.Walk(1, 2, 1);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Walk(1, 2, 1));
         }
 
         [Test]
@@ -334,52 +319,45 @@ namespace Amaranth.Engine.Tests
         #region Taper
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestTaperThrowsIfIncrementIsZero()
         {
-            int dummy = Rng.Taper(5, 0, 1, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Taper(5, 0, 1, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestTaperThrowsIfChanceIsNegative()
         {
-            int dummy = Rng.Taper(5, 1, -2, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Taper(5, 1, -2, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestTaperThrowsIfChanceIsZero()
         {
-            int dummy = Rng.Taper(5, 1, 0, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Taper(5, 1, 0, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestTaperThrowsIfChanceIsRange()
         {
-            int dummy = Rng.Taper(5, 1, 2, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Taper(5, 1, 2, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestTaperThrowsIfChanceIsGreaterThanRange()
         {
-            int dummy = Rng.Taper(5, 1, 3, 2);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Taper(5, 1, 3, 2));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestTaperThrowsIfOutOfIsNegative()
         {
-            int dummy = Rng.Taper(5, 1, 1, -3);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Taper(5, 1, 1, -3));
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestTaperThrowsIfOutOfIsZero()
         {
-            int dummy = Rng.Taper(5, 1, 1, 0);
+            Assert.Throws<ArgumentOutOfRangeException>(() => Rng.Taper(5, 1, 1, 0));
         }
 
         [Test]

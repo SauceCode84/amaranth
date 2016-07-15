@@ -20,11 +20,11 @@ namespace Amaranth.Util.Tests
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void TestConstructorThrowsOnNull()
         {
             Foo foo = null;
-            NotNull<Foo> notNull = new NotNull<Foo>(foo);
+
+            Assert.Throws<ArgumentNullException>(() => new NotNull<Foo>(foo));
         }
 
         [Test]
